@@ -1,58 +1,19 @@
 ---
-title: Release Notes for YOUR-PRODUCT-NAME
+title: Release Notes for Weave Cloud for PCF
 owner: Partners
 ---
 
-**This topic should include the Release Notes for your product. For examples, see the 
-[GCP Service Broker Release Notes](http://docs.pivotal.io/gcp-sb/release-notes.html) or the 
-[ISS Knowtify Search Analytics Release Notes](http://docs.pivotal.io/knowtify/release.html).
-When you release a new version, add new release notes to this file, keeping the older notes below.**
 
-These are release notes for YOUR-PRODUCT-NAME.
+##<a id="ver"></a> v1.0.2
 
-##<a id="ver"></a> vCURRENT-VERSION-NUMBER (Ex. v1.0.1)
+**Release Date:** October 25, 2017
 
-**Release Date:** RELEASE-DATE (Ex. October 1, 2017)
+**Features included in this release:**
 
-Features included in this release:
-
-* Feature one.
-* Feature two.
-* Feature three.
-
-Fixed issues in this release:
-
-* Fixed issue one.
-* Fixed issue two.
-* Fixed issue three.
-
-**When you have fixed issue, you should have a corresponding known issue in the release below.**
-
-Known issues in this release:
-
-* Issue one.
-* Issue two.
-* Issue three.
-
-
-##<a id="ver"></a> vPREVIOUS-VERSION-NUMBER (Ex. v1.0.0)
-
-**Release Date:** RELEASE-DATE (Ex. August 1, 2017)
-
-Features included in this release:
-
-* Feature one.
-* Feature two.
-* Feature three.
-
-Fixed issues in this release:
-
-* Fixed issue one.
-* Fixed issue two.
-* Fixed issue three.
-
-Known issues in this release:
-
-* Issue one.
-* Issue two.
-* Issue three.
+* **PCF monitoring**: Collects metrics from all components of PCF.
+* **IaaS-level monitoring**: Collects metrics about CPU, memory usage, IO, network, VM states, regardless of the underlying infrastructure.
+* **Third-party services monitoring**: Collects metrics from MySQL, PostgreSQL, Redis, and RabbitMQ.
+* **Application monitoring**: Gathers standard metrics (CPU, memory, or disk usage), arbitrary metrics (gauges, counters, timings, sets), and HTTP-specific metrics (requests per second, status codes, error rates, and more).
+* **SSO and multi-tenancy**: Uses the Cloud Foundry UAA service.
+  to control access to apps and resources based on user roles and rights within the platform. Multi-tenancy is implemented according to Cloud Foundry UAA roles. Dedicated shares of the solution are deployed to different spaces to collect metrics from the apps and services running within.
+* **Alerts**: Can be defined for each dashboard panel, and allow users to get immediate notifications though email, Slack, and other notification channels.

@@ -1,114 +1,107 @@
 ---
-title: YOUR-PRODUCT-NAME (Beta)
+title: Weave Cloud for PCF (Alpha)
 owner: Partners
 ---
 
+Weave Cloud for PCF allows Pivotal PCF users to [visualize, troubleshoot explore](https://www.weave.works/docs/cloud/latest/concepts/explore-and-troubleshoot/) and [monitor](https://www.weave.works/docs/cloud/latest/concepts/prometheus-monitoring/) apps and microservices as they run in Cloud Foundry.
+
 <p class="note warning">
 <strong>WARNING! </strong>
-The PRODUCT-NAME for PCF tile is currently in beta and is intended for evaluation and test purposes only. 
+The Weave Cloud for PCF tile is currently in alpha and is intended for evaluation and test purposes only.
 Do not use this product in a PCF production environment.
 </p>
 
-**This topic begins with a brief description of what the product tile (e.g. Apigee Edge Service Broker for PCF) does, 
-whereas the Overview section below describes what the service itself (e.g. Apigee Edge) does. See below for an example.**
-
-This documentation describes the Apigee Edge Service Broker for Pivotal Cloud Foundry (PCF). The Apigee Edge Service 
-Broker for PCF enables developers to manage APIs for their PCF apps through the Apigee Edge management console.
-
-**Note**: This description will appear under **OVERVIEW** in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io).
-
 ## <a id='overview'></a>Overview
 
-**The overview describes the service that your product offers to PCF developers. 
-Make sure to overview the features of the integration.
-Don't focus only on the overview of your product that is being integrated.
-See below for an example.**
+[Weave Cloud](https://www.weave.works) is a one-click ops platform for development teams that integrates the operational
+expertise to deploy, explore, and monitor apps and services running in a cluster.  In the PCF platform you can use Weave Cloud to visualize all your services in a graphical context-sensitive map and also use it to monitor, send alerts and troubleshoot your application.
 
-The Apigee Edge Service Broker for PCF registers a service broker with PCF and exposes its service plans on the 
-Marketplace. Developers can then create service plan instances using Apps Manager or the Cloud Foundry Command 
-Line Interface (cf CLI) and bind them to their apps.
-
-Creating an Apigee Edge for PCF service instance and binding it to an app creates an Apigee Edge API proxy that 
-handles requests for the app. This lets developers use the Apigee Edge management console to manage API request 
-handling between clients and the app.
-
-**Note**: This overview will appear under **OVERVIEW**, combined with the description above in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io).
 
 ## <a id='features'></a>Key Features
 
-**Note**: This feature list will appear under **FEATURES** in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io). 
-Make sure you list the key features of the tile (the integration). 
-We cannot accept a list of the key features of your product that we are integrating.
+Weave Cloud for PCF includes the following key features:
 
-YOUR-PRODUCT-NAME includes the following key features:
-
-* Feature one.
-* Feature two.
-* Feature three.
-
-
+* **PCF monitoring**: Collects metrics from all components of PCF.
+* **IaaS-level monitoring**: Collects metrics about CPU, memory usage, IO, network, VM states, regardless of the underlying infrastructure.
+* **Third-party services monitoring**: Collects metrics from MySQL, PostgreSQL, Redis, and RabbitMQ.
+* **Application monitoring**: Gathers standard metrics (CPU, memory, or disk usage), arbitrary metrics (gauges, counters, timings, sets), and HTTP-specific metrics (requests per second, status codes, error rates, and more).
+* **SSO and multi-tenancy**: Uses the Cloud Foundry UAA service.
+  to control access to apps and resources based on user roles and rights within the platform. Multi-tenancy is implemented according to Cloud Foundry UAA roles. Dedicated shares of the solution are deployed to different spaces to collect metrics from the apps and services running within.
+* **Alerts**: Can be defined for each dashboard panel, and allow users to get immediate notifications though email, Slack, and other notification channels.
 
 ## <a id="snapshot"></a>Product Snapshot
 
-The following table provides version and version-support information about PRODUCT-NAME.
+The following table provides version and version-support information about Weave Cloud for PCF.
 
 <table class="nice">
     <th>Element</th>
     <th>Details</th>
     <tr>
         <td>Tile version</td>
-        <td>vYOUR-VERSION-NUMBER</td>
+        <td>v1.0.2</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>YOUR-RELEASE-DATE (Ex: July 1, 2017)</td>
+        <td>October 25, 2017</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>vYOUR-SOFTWARE-COMPONENT-VERSION-NUMBER</td>
+        <td>Grafana v4.4.1, collectd v5.7.2, StatsD v0.8.0, carbonapi 0.8.0, carbon-c-releay 3.1, carbonzipper 0.73.2 and go-carbon 0.10.1</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
-        <td>vYOUR-COMPATIBLE-OPS-MAN-VERSION (Ex. v1.8.x, v1.9.x, and v1.10.x)</td>
+        <td>v1.10.x and v1.11.x</td>
     </tr>
     <tr>
         <td>Compatible Elastic Runtime version(s)</td>
-        <td>vYOUR-COMPATIBLE-ELASTIC-RUNTIME-VERSION (Ex. v1.8.x, v1.9.x, and v1.10.x)</td>
+        <td>v1.10.x and v1.11.x</td>
     </tr>
     <tr>
         <td>IaaS support</td>
-        <td>AWS?, Azure?, GCP?, OpenStack?, and vSphere?</td>
+        <td>AWS and OpenStack</td>
     </tr>
     <tr>
         <td>IPsec support?</td>
-        <td>[Yes or No]</td>
+        <td>No</td>
     </tr>
 </table>
 
 ## <a id="reqs"></a>Requirements
 
-**Provide any general or specific requirements, prerequisites, or dependencies here. 
-A general requirement might be something like, "An AppDynamics account." 
-A specific requirement might be something like, "Packaging Dependencies for Offline Buildpacks."**
+Weave Cloud for PCF has the following requirements:
 
-YOUR-PRODUCT-NAME has the following requirements:
-
-+ PREREQUISITE-1
-
-+ PREREQUISITE-2
+* [Elastic Runtime](https://network.pivotal.io/products/elastic-runtime) v1.10.x, v1.11.x
+* [Ops Manager](https://network.pivotal.io/products/ops-manager) v1.10.x, v1.11.x
+* Installation of the collectd add-on for PCF to enable PCF component VMs and
+  the VMs of any other BOSH-deployed services expose system metrics to Heartbeat.
+For more information, see [Installing the collectd Add-on for PCF](installing.html).
+* (Optional) If you want to enable collection of JMX metrics from Java apps, you will need a custom Java buildpack for Weave Cloud Service Broker for PCF.
+For more information, see [JMXTrans Agent Integration](jmxtrans.html).
+* (Optional) If you want to enable collection of custom application metrics, you must integrate a StatsD library into the app's code.
+  For more information, see [StatsD Integration](statsd.html).
 
 ## <a id="limitations"></a>Limitations
 
-**List any known limitations.**
+The overall solution should be considered **alpha quality**.
+
+The Weave Cloud PCF tile, as well as the Scope Plugins for BOSH and Garden are considered alpha-quality software and as such have some limitations:
+
+* The offline buildpack for collecting JMX metrics is unavailable and only the online version of the buildpack from
+  [this GitHub repository](https://github.com/Altoros/java-buildpack#jmx-agent-integration) can be used to collect JMX metrics from Java apps.
+* Users are limited to using internal MariaDB to store internal Heartbeat data such as user sessions, mappings, dashboards, UI configs, etc.
+* Downscaling with retained high availability is only possible for at least two back-end instances.
+
+The Weave Cloud agents (aka Scope Probe, and the Prometheus instance configured to push metrics to Weave Cloud) and Weave Cloud itself are production-ready.
+
+Please try it out on your development and test environments and send us your feedback.
 
 ## <a id="feedback"></a>Feedback
 
 If you have a feature request, questions, or information about a bug, please email
-[Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) list or send an email to YOUR-SUPPORT-EMAIL.
+[Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) list.
+
+If you have any questions or comments you can reach out to us on our [#weave-community](https://weave-community.slack.com/messages). To invite yourself to the Community Slack channel, visit [Weave Community Slack invite]( https://weaveworks.github.io/community-slack/) or contact us through one of these other channels at [Help and Support Services](https://www.weave.works).
 
 ## <a id='license'></a>License
 
-**List any license information here.**
+Users interested in Heartbeat can sign up for a [free trial](https://www.altoros.com/wp-content/uploads/2017/07/AltorosHeartbeatTileEULA.pdf).
