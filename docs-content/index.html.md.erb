@@ -1,20 +1,24 @@
 ---
-title: Weave Cloud for PCF (Alpha)
+title: Weave Cloud for PCF (Beta)
 owner: Partners
 ---
 
-Weave Cloud for PCF allows Pivotal PCF users to [visualize, troubleshoot explore](https://www.weave.works/docs/cloud/latest/concepts/explore-and-troubleshoot/) and [monitor](https://www.weave.works/docs/cloud/latest/concepts/prometheus-monitoring/) apps and microservices as they run in Cloud Foundry.
+Weave Cloud for PCF allows Pivotal Pivotal Cloud Foundry (PCF) users to [visualize, 
+troubleshoot explore](https://www.weave.works/docs/cloud/latest/concepts/explore-and-troubleshoot/) 
+and [monitor](https://www.weave.works/docs/cloud/latest/concepts/prometheus-monitoring/) apps and microservices as they run in Cloud Foundry.
 
 <p class="note warning">
 <strong>WARNING! </strong>
-The Weave Cloud for PCF tile is currently in alpha and is intended for evaluation and test purposes only.
+The Weave Cloud for PCF tile is currently in Closed Beta and is intended for evaluation and test purposes only.
 Do not use this product in a PCF production environment.
 </p>
 
 ## <a id='overview'></a>Overview
 
 [Weave Cloud](https://www.weave.works) is a one-click ops platform for development teams that integrates the operational
-expertise to deploy, explore, and monitor apps and services running in a cluster.  In the PCF platform you can use Weave Cloud to visualize all your services in a graphical context-sensitive map and also use it to monitor, send alerts and troubleshoot your application.
+expertise to deploy, explore, and monitor apps and services running in a cluster.
+In the PCF platform you can use Weave Cloud to visualize all your services in a graphical 
+context-sensitive map and also use it to monitor, send alerts, and troubleshoot your application.
 
 
 ## <a id='features'></a>Key Features
@@ -22,12 +26,12 @@ expertise to deploy, explore, and monitor apps and services running in a cluster
 Weave Cloud for PCF includes the following key features:
 
 * **PCF monitoring**: Collects metrics from all components of PCF.
-* **IaaS-level monitoring**: Collects metrics about CPU, memory usage, IO, network, VM states, regardless of the underlying infrastructure.
+* **IaaS-level monitoring**: Collects metrics about CPU, memory usage, IO, network, and VM states, regardless of the underlying infrastructure.
 * **Third-party services monitoring**: Collects metrics from MySQL, PostgreSQL, Redis, and RabbitMQ.
 * **Application monitoring**: Gathers standard metrics (CPU, memory, or disk usage), arbitrary metrics (gauges, counters, timings, sets), and HTTP-specific metrics (requests per second, status codes, error rates, and more).
-* **SSO and multi-tenancy**: Uses the Cloud Foundry UAA service.
-  to control access to apps and resources based on user roles and rights within the platform. Multi-tenancy is implemented according to Cloud Foundry UAA roles. Dedicated shares of the solution are deployed to different spaces to collect metrics from the apps and services running within.
-* **Alerts**: Can be defined for each dashboard panel, and allow users to get immediate notifications though email, Slack, and other notification channels.
+* **SSO and multi-tenancy**: Uses the Cloud Foundry UAA service to control access to apps and 
+resources based on user roles and rights within the platform. Multi-tenancy is implemented according to Cloud Foundry UAA roles. Dedicated shares of the solution are deployed to different spaces to collect metrics from the apps and services running within.
+* **Alerts**: Can be defined for each dashboard panel, and allow users to get immediate notifications through email, Slack, and other notification channels.
 
 ## <a id="snapshot"></a>Product Snapshot
 
@@ -38,15 +42,15 @@ The following table provides version and version-support information about Weave
     <th>Details</th>
     <tr>
         <td>Tile version</td>
-        <td>v1.0.2</td>
+        <td>v0.0.2</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>October 25, 2017</td>
+        <td>January 8, 2018</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>Grafana v4.4.1, collectd v5.7.2, StatsD v0.8.0, carbonapi 0.8.0, carbon-c-releay 3.1, carbonzipper 0.73.2 and go-carbon 0.10.1</td>
+        <td>Grafana v4.4.1, collectd v5.7.2, StatsD v0.8.0, carbonapi 0.8.0, carbon-c-releay 3.1, carbonzipper 0.73.2, and go-carbon 0.10.1</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
@@ -73,18 +77,18 @@ Weave Cloud for PCF has the following requirements:
 * [Elastic Runtime](https://network.pivotal.io/products/elastic-runtime) v1.10.x, v1.11.x
 * [Ops Manager](https://network.pivotal.io/products/ops-manager) v1.10.x, v1.11.x
 * Installation of the collectd add-on for PCF to enable PCF component VMs and
-  the VMs of any other BOSH-deployed services expose system metrics to Heartbeat.
+  the VMs of any other BOSH-deployed services to expose system metrics to Heartbeat.
 For more information, see [Installing the collectd Add-on for PCF](installing.html).
-* (Optional) If you want to enable collection of JMX metrics from Java apps, you will need a custom Java buildpack for Weave Cloud Service Broker for PCF.
+* (Optional) If you want to enable the collection of JMX metrics from Java apps, you will need a custom Java buildpack for Weave Cloud Service Broker for PCF.
 For more information, see [JMXTrans Agent Integration](jmxtrans.html).
 * (Optional) If you want to enable collection of custom application metrics, you must integrate a StatsD library into the app's code.
   For more information, see [StatsD Integration](statsd.html).
 
 ## <a id="limitations"></a>Limitations
 
-The overall solution should be considered **alpha quality**.
+The overall solution should be considered **beta quality**.
 
-The Weave Cloud PCF tile, as well as the Scope Plugins for BOSH and Garden are considered alpha-quality software and as such have some limitations:
+The Weave Cloud for PCF tile, as well as the Scope Plugins for BOSH and Garden are considered beta-quality software and as such have some limitations:
 
 * The offline buildpack for collecting JMX metrics is unavailable and only the online version of the buildpack from
   [this GitHub repository](https://github.com/Altoros/java-buildpack#jmx-agent-integration) can be used to collect JMX metrics from Java apps.
