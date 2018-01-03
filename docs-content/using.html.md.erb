@@ -1,15 +1,56 @@
 ---
-title: Using YOUR-PRODUCT-NAME
+title: Using Weave Cloud for PCF
 owner: Partners
 ---
 
-This topic describes how to use YOUR-PRODUCT-NAME.
 
-##<a id='using'></a> Using YOUR-PRODUCT-NAME
+##<a id='using'></a> Using Weave Cloud for PCF
 
-**This topic should include any instructions for how to use the service or dashboard created by the tile. 
-Give procedures for how to perform the different functions offered by your product and provide screenshots where necessary.** 
+### <a id="wc-explore-cloud-foundry"></a>Weave Cloud Explore for Cloud Foundry
 
-**You can also use this section to include information about Architecture and Troubleshooting for known errors. 
-If you include a Troubleshooting section, follow the Symptom/Explanation format used in the 
-[Okta Troubleshooting](http://docs.pivotal.io/p-identity/okta/troubleshooting.html) topic**.
+Explore allows you to visualize a live map of your Cloud Foundry platform. This has been described as "seeing Cloud Foundry for the first time". As a Cloud Foundry operator, it helps you understand and teach people about the system, as well as debug issues with your Cloud Foundry deployment. For example, you can ask "what's the Cloud Controller doing?"
+
+![Explore the Cloud Controller in Weave Cloud](images/cloud-controller-explore.png)
+
+You can see the outbound connections that it's making to NATS, the Consul server, etc.
+
+Using Weave Cloud, you can even travel back in time and ask questions like "What was the Cloud Controller Worker doing at 3am this morning?"
+
+![Time travel with Weave Cloud](images/cloud-controller-timeline.png)
+
+As well as seeing individual VMs in the live map that Explore gives you, it can also show you the relationships between different containerized apps running on the platform:
+
+![View Container relationships](images/container-detail.png)
+
+For example you can see the relationships between the containers (diego cells) that make up the [Spring Boot Eureka Demo](https://github.com/cloudfoundry-incubator/cf-networking-release/tree/develop/src/example-apps/eureka), and also demonstrate CloudFoundry's CNI support for direct container-to-container communications.
+
+### <a id="wc-explore-monitor"></a>How Monitor and Explore Works with Weave Cloud
+
+![Weave Cloud Explore](images/explore-monitor.png)
+
+If a Weave Cloud token is entered during the installation, Prometheus is deployed in a separate VM in your PCF cloud. Prometheus scrapes metrics from the Cloud Controller and BOSH director and then forwards them on to Weave Cloud, where they can be easily queried and graphed.
+
+Additionally, the Explore Agent, shown with a * on the diagram, is installed on the relevant VMs, and configured to push information to Weave Cloud, both for the platform components and also containerized apps running in Diego Cells.
+
+Weave Cloud Monitor gathers and pushes time-series metrics about the health of the Cloud Foundry platform itself, including metrics about e.g. CPU and memory usage, how many apps are running, and other metrics that are valuable for a PCF operator.
+
+When configured with Weave Cloud, the tile deploys a VM running Prometheus that scrapes metrics from a number of targets such as the BOSH director and the Cloud Foundry Cloud Controller. Those metrics are then forwarded to Weave Cloud where you can query them in the Monitor tab using PromQL.
+
+For example, here we can group the CPU usage in the system by the BOSH job it corresponds to:
+
+![Monitor CPU usage](images/BOSH-job-cpu.png)
+
+The Weave Cloud PCF tile instructs BOSH to co-locate the Explore Agent with every VM inside your Cloud Foundry deployment. Depending on how you have configured the tile, the agents send reports about the VMs to either Weave Cloud or to a standalone Weave Scope App running inside your own cloud.
+
+### <a id="explore-only"></a>Standalone Scope
+
+![Scope App in your cloud](images/explore-only.png)
+
+In standalone mode, only the Explore functionality is available. It operates exactly as the Explore feature in Weave Cloud with some caveats.
+
+Weave Cloud is the recommended option if:
+
+* You are deploying to larger clusters.
+* You require secure remote access.
+* You want to share access with your coworkers.
+* You want to minimize Weave Scope memory and CPU usage.

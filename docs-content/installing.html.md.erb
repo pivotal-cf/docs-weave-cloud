@@ -1,28 +1,66 @@
 ---
-title: Installing and Configuring YOUR-PRODUCT-NAME
+title: Installing and Configuring Weave Cloud for PCF
 owner: Partners
 ---
 
-This topic describes how to install and configure YOUR-PRODUCT-NAME.
 
-##<a id='install'></a> Install and Configure YOUR-PRODUCT-NAME
+##<a id='install'></a> Install and Configure Weave Cloud for PCF
 
-1. Download the product file from Pivotal Network.
+**1.** Download the product file from [Pivotal Network](https://network.pivotal.io/products/p-weave).
 
-1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
+**2.** Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file.
 
-1. Under the **Import a Product** button, click **+** next to the version number of YOUR-PRODUCT-NAME. 
+**3.** Under the **Import a Product** button, click **+** next to the version number of Weave Cloud for PCF.
 This adds the tile to your staging area.
 
-1. Click the newly added **YOUR-PRODUCT-NAME** tile.
+**4.** Click the newly added Weave Cloud for PCF tile.
 
-1. **This portion of the procedure should tell the users how to configure the newly added tile by
-walking them through the sections. Which fields should they fill out? What are the different
-checkboxes? Include relevant screenshots here.** 
+**5.** Assign availability zones and networks in the tile settings tab:
 
-1. Click **Save**.
+![PCF Ops Manager Settings tab](images/PCF-opsmgr-aznetworks.png)
 
-1. Return to the Ops Manager Installation Dashboard and click **Apply changes** to install YOUR-PRODUCT-NAME tile.
+Once these are configured, decide whether you want to configure the tile to use [Weave Cloud](https://cloud.weave.works) or whether you want to run a stand-alone version inside your own cloud and use [Weave Scope](https://www.weave.works/oss/scope/).
 
-**If needed, include additional configuration information below. For example, maybe there are
-configuration options not required for installation but which could be useful for certain users.**
+Note that with Weave Cloud you can use both Prometheus montoring and the explore features, whereas, with Weave Scope you can only to explore your application.
+
+### <a id="wc-integration"></a>Weave Cloud Integration with PCF
+
+To explore and monitor your Cloud Foundry deployment from within Weave Cloud, provide the service token from your [Weave Cloud](https://cloud.weave.works) account:
+
+**1.** Sign up to Weave Cloud and then create an instance:
+
+![Create a Weave Cloud instance](images/create-instance.png)
+
+**2.** Find and then copy the service token located in the upper left-hand corner of the installation screen:
+
+![Find the Weave Cloud service token](images/weave-cloud-service-token.png)
+
+**3.** Paste the service token into the Weave Cloud Service token field on the PCF Ops Manager settings tab.
+
+![PCF Ops Manager Settings tab](images/PCF-opsmgr-wctoken.png)
+
+**4.** Return to the Ops Manager Installation Dashboard and click **Apply Changes**.
+
+**5.** Once the service token is entered and saved in the PCF Ops Manager, return to Weave Cloud and click **Explore**, where you should see something similar to the screen capture shown below:
+
+![Weave Cloud Explore for PCF](images/wc-pcf-platform-integration.png)
+
+**6.** Click **Monitor** in Weave Cloud to view the time-series interface for querying BOSH metrics. In this instance CPU and Memory usage are graphed:
+
+![BOSH Metrics in Weave Cloud](images/bosh-metrics.png)
+
+### <a id="wc-scope"></a>Installing Weave Scope Standalone
+
+As an alternative to integrating with Weave Cloud, you can deploy an instance of the Weave Scope App inside your own cloud. To do this, leave the **Weave Cloud Service Token** field empty and then select **Resource Config** and set the number of Weave Scope App instances to one or more.
+
+![Resource Config Settings Tab](images/resource-config.png)
+
+Once you've made your changes to the tile configuration, remember to click the **Apply Changes** in Ops Manager.
+
+### <a id="authorize"></a>Authorizing the Weave Scope Standalone App
+
+The standalone Scope App integrates with Cloud Foundry’s User Account and Authentication (UAA) Server. In order to use the app, login as a cloud_controller.admin user and authorize Weave Scope.
+
+![Authorize your app](images/pivotal-authorize-weave-scope.png)
+
+If the PCF tile is configured to work with [Weave Cloud](https://cloud.weave.works), you can explore your Cloud Foundry deployment by logging into your Weave Cloud account and clicking the Explore tab.
