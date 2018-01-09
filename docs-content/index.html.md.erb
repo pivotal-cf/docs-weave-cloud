@@ -3,12 +3,12 @@ title: Weave Cloud for PCF (Beta)
 owner: Partners
 ---
 
-Weave Cloud for PCF allows Pivotal Pivotal Cloud Foundry (PCF) users to [visualize, 
-troubleshoot explore](https://www.weave.works/docs/cloud/latest/concepts/explore-and-troubleshoot/) 
+Weave Cloud for PCF allows Pivotal Cloud Foundry (PCF) users to [visualize, 
+troubleshoot, explore](https://www.weave.works/docs/cloud/latest/concepts/explore-and-troubleshoot/), 
 and [monitor](https://www.weave.works/docs/cloud/latest/concepts/prometheus-monitoring/) apps and microservices as they run in Cloud Foundry.
 
 <p class="note warning">
-<strong>WARNING! </strong>
+<strong>WARNING!</strong>
 The Weave Cloud for PCF tile is currently in Closed Beta and is intended for evaluation and test purposes only.
 Do not use this product in a PCF production environment.
 </p>
@@ -18,7 +18,7 @@ Do not use this product in a PCF production environment.
 [Weave Cloud](https://www.weave.works) is a one-click ops platform for development teams that integrates the operational
 expertise to deploy, explore, and monitor apps and services running in a cluster.
 In the PCF platform you can use Weave Cloud to visualize all your services in a graphical 
-context-sensitive map and also use it to monitor, send alerts, and troubleshoot your application.
+context-sensitive map and also use it to monitor and troubleshoot your application, and send you alerts if needed.
 
 
 ## <a id='features'></a>Key Features
@@ -31,7 +31,7 @@ Weave Cloud for PCF includes the following key features:
 * **Application monitoring**: Gathers standard metrics (CPU, memory, or disk usage), arbitrary metrics (gauges, counters, timings, sets), and HTTP-specific metrics (requests per second, status codes, error rates, and more).
 * **SSO and multi-tenancy**: Uses the Cloud Foundry UAA service to control access to apps and 
 resources based on user roles and rights within the platform. Multi-tenancy is implemented according to Cloud Foundry UAA roles. Dedicated shares of the solution are deployed to different spaces to collect metrics from the apps and services running within.
-* **Alerts**: Can be defined for each dashboard panel, and allow users to get immediate notifications through email, Slack, and other notification channels.
+* **Alerts**: Can be defined for each dashboard panel. Alerts allow users to get immediate notifications through email, Slack, and other notification channels.
 
 ## <a id="snapshot"></a>Product Snapshot
 
@@ -90,12 +90,11 @@ The overall solution should be considered **beta quality**.
 
 The Weave Cloud for PCF tile, as well as the Scope Plugins for BOSH and Garden are considered beta-quality software and as such have some limitations:
 
-* The offline buildpack for collecting JMX metrics is unavailable and only the online version of the buildpack from
-  [this GitHub repository](https://github.com/Altoros/java-buildpack#jmx-agent-integration) can be used to collect JMX metrics from Java apps.
+* The offline buildpack for collecting JMX metrics is unavailable. Only the [online version of the buildpack](https://github.com/Altoros/java-buildpack#jmx-agent-integration) can be used to collect JMX metrics from Java apps.
 * Users are limited to using internal MariaDB to store internal Heartbeat data such as user sessions, mappings, dashboards, UI configs, etc.
 * Downscaling with retained high availability is only possible for at least two back-end instances.
 
-The Weave Cloud agents (aka Scope Probe, and the Prometheus instance configured to push metrics to Weave Cloud) and Weave Cloud itself are production-ready.
+The Weave Cloud agents (the Scope Probe, and the Prometheus instance configured to push metrics to Weave Cloud) and Weave Cloud itself are production-ready.
 
 Please try it out on your development and test environments and send us your feedback.
 
