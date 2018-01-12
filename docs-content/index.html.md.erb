@@ -3,8 +3,8 @@ title: Weave Cloud for PCF (Beta)
 owner: Partners
 ---
 
-Weave Cloud for PCF allows Pivotal Cloud Foundry (PCF) users to [visualize, 
-troubleshoot, explore](https://www.weave.works/docs/cloud/latest/concepts/explore-and-troubleshoot/), 
+Weave Cloud for PCF allows Pivotal Cloud Foundry (PCF) users to [visualize,
+troubleshoot, explore](https://www.weave.works/docs/cloud/latest/concepts/explore-and-troubleshoot/),
 and [monitor](https://www.weave.works/docs/cloud/latest/concepts/prometheus-monitoring/) apps and microservices as they run in Cloud Foundry.
 
 <p class="note warning">
@@ -17,7 +17,7 @@ Do not use this product in a PCF production environment.
 
 [Weave Cloud](https://www.weave.works) is a one-click ops platform for development teams that integrates the operational
 expertise to deploy, explore, and monitor apps and services running in a cluster.
-In the PCF platform you can use Weave Cloud to visualize all your services in a graphical 
+In the PCF platform you can use Weave Cloud to visualize all your services in a graphical
 context-sensitive map and also use it to monitor and troubleshoot your application, and send you alerts if needed.
 
 
@@ -29,7 +29,7 @@ Weave Cloud for PCF includes the following key features:
 * **IaaS-level monitoring**: Collects metrics about CPU, memory usage, IO, network, and VM states, regardless of the underlying infrastructure.
 * **Third-party services monitoring**: Collects metrics from MySQL, PostgreSQL, Redis, and RabbitMQ.
 * **Application monitoring**: Gathers standard metrics (CPU, memory, or disk usage), arbitrary metrics (gauges, counters, timings, sets), and HTTP-specific metrics (requests per second, status codes, error rates, and more).
-* **SSO and multi-tenancy**: Uses the Cloud Foundry UAA service to control access to apps and 
+* **SSO and multi-tenancy**: Uses the Cloud Foundry UAA service to control access to apps and
 resources based on user roles and rights within the platform. Multi-tenancy is implemented according to Cloud Foundry UAA roles. Dedicated shares of the solution are deployed to different spaces to collect metrics from the apps and services running within.
 * **Alerts**: Can be defined for each dashboard panel. Alerts allow users to get immediate notifications through email, Slack, and other notification channels.
 
@@ -79,12 +79,7 @@ Weave Cloud for PCF has the following requirements:
 * [Elastic Runtime](https://network.pivotal.io/products/elastic-runtime) v1.10.x, v1.11.x
 * [Ops Manager](https://network.pivotal.io/products/ops-manager) v1.10.x, v1.11.x
 * Installation of the collectd add-on for PCF to enable PCF component VMs and
-  the VMs of any other BOSH-deployed services to expose system metrics to Heartbeat.
-For more information, see [Installing the collectd Add-on for PCF](installing.html).
-* (Optional) If you want to enable the collection of JMX metrics from Java apps, you need a custom Java buildpack for Weave Cloud Service Broker for PCF.
-  [//]: # (For more information, see [JMXTrans Agent Integration](jmxtrans.html).)
-* (Optional) If you want to enable collection of custom application metrics, you must integrate a StatsD library into the app's code.
-  [//]: # (For more information, see [StatsD Integration](statsd.html).)
+  the VMs of any other BOSH-deployed services to expose system metrics to Heartbeat.  
 
 ## <a id="limitations"></a>Limitations
 
